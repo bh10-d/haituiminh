@@ -2,8 +2,8 @@
     let date = new Date()
     let month = [1,2,3,4,5,6,7,8,9,10,11,12]
     let main = document.getElementById('main')
-    if(date.getDate() === 14 && month[date.getMonth()] === 2){
-        document.title = "1 món quà cho em";
+    if(date.getDate() === 26 && month[date.getMonth()] === 1){
+        document.title = "Valentine hạnh phúc nha bé iu";
     }else{
         main.innerHTML = "<h1>Project 142</h1>"
     }
