@@ -63,7 +63,7 @@ section #mountains_front{
 
 .sec{
     position: relative;
-    height: 100vh;
+    height: 110vh;
     padding: 100px;
     background-color: #1c0522;
 }
@@ -96,7 +96,7 @@ section #mountains_front{
 }
 
 .video{
-    width: 58%;
+    /* width: 58%; */
 }
 
 
