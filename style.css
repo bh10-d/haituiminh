@@ -11,7 +11,6 @@ body{
     min-height: 105vh;
     overflow-x: hidden;
     background: linear-gradient(#2b1055,#7597de);
-    /* background-color: rebeccapurple; */
 }
 
 section{
@@ -63,7 +62,7 @@ section #mountains_front{
 
 .sec{
     position: relative;
-    height: 110vh;
+    height: 100vh;
     padding: 100px;
     background-color: #1c0522;
 }
@@ -81,24 +80,27 @@ section #mountains_front{
 
 .sub_main {
     width: 100%;
-    /* height: 70vh; */
     display: flex;
-    justify-content: space-between;
+    flex-direction: center;
+    align-items: center;
+    transform: translateX(15%);
 }
 
 .text_box {
     width: 40%;
+    margin-right: 10px;
 }
 
 .text_box p:nth-child(1){
-    /* font-weight: 400; */
     font-size: 40px;
 }
 
-.video{
-    /* width: 58%; */
-}
 
+@media  screen and (max-width: 1366px) {
+    .sub_main{
+        transform: translateX(0)
+    }
+}
 
 @media screen and (max-width: 768px) {
     .sec{
