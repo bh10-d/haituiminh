@@ -2,7 +2,7 @@
     let date = new Date()
     let month = [1,2,3,4,5,6,7,8,9,10,11,12]
     let main = document.getElementById('main')
-    if(date.getDate() === 27 && month[date.getMonth()] === 1){
+    if(date.getDate() === 1 && month[date.getMonth()] === 2){
         document.title = "Valentine hạnh phúc nha bé iu";
     }else{
         main.innerHTML = "<h1>Project 142</h1>"
@@ -28,7 +28,7 @@
         if(screenHeight >= 1080){
             section.style.height = 110+'vh';
         }else{
-            section.style.height = 45 + videoHeight/(screenHeight/100) + 'vh';
+            section.style.height = 80 + videoHeight/(screenHeight/100) + 'vh';
         }
         // console.log(videoHeight/(screenHeight/100))
         // console.log(section)
