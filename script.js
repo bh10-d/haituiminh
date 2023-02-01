@@ -28,7 +28,7 @@
         if(screenHeight >= 1080){
             section.style.height = 110+'vh';
         }else{
-            section.style.height = 80 + videoHeight/(screenHeight/100) + 'vh';
+            section.style.height = 90 + videoHeight/(screenHeight/100) + 'vh';
         }
         // console.log(videoHeight/(screenHeight/100))
         // console.log(section)

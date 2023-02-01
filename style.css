@@ -53,11 +53,12 @@ section #mountains_front{
 
 #text{
     position: absolute;
-    right: -250px;
+    /* top: 200px; */
+    /* right: -250px; */
     color: #fff;
     white-space: nowrap;
     font-size: 7.5vw;
-    z-index: 9;
+    z-index: 50;
 }
 
 .sec{
