@@ -2,11 +2,11 @@
     let date = new Date()
     let month = [1,2,3,4,5,6,7,8,9,10,11,12]
     let main = document.getElementById('main')
-    if(date.getDate() === 1 && month[date.getMonth()] === 2){
-        document.title = "Valentine hạnh phúc nha bé iu";
-    }else{
-        main.innerHTML = "<h1>Project 142</h1>"
-    }
+    // if(date.getDate() === 1 && month[date.getMonth()] === 2){
+    //     document.title = "Valentine hạnh phúc nha bé iu";
+    // }else{
+    //     main.innerHTML = "<h1>Project 142</h1>"
+    // }
     
     let moon = document.getElementById('moon');
     let stars = document.getElementById('stars');
