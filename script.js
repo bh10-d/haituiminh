@@ -1,46 +1,62 @@
-(()=>{
-    let date = new Date()
-    let month = [1,2,3,4,5,6,7,8,9,10,11,12]
-    let main = document.getElementById('main')
-    // if(date.getDate() === 1 && month[date.getMonth()] === 2){
-    //     document.title = "Valentine hạnh phúc nha bé iu";
-    // }else{
-    //     main.innerHTML = "<h1>Project 142</h1>"
-    // }
-    
-    let moon = document.getElementById('moon');
-    let stars = document.getElementById('stars');
-    let moutains_behind = document.getElementById('moutains_behind');
-    let mountains_front = document.getElementById('mountains_front');
-    let play = document.getElementById('play');
-    let section = document.getElementById('body_sec');
-    // let section_block = document.getElementsByClassName('sub_main');
-    // let text = document.getElementById('text');
+let g_date = new Date();
+let month_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+let history_date = 13;
+let history_month = 8;
+let history_year = 2022;
+
+let count = 0;
+
+const get_day_of_month = (year, month) => {
+    return new Date(year, month, 0).getDate();
+};
 
 
-    let screenHeight = window.screen.height; //chia cho 100 la ra dc 1vh
-    let screenWidth = window.screen.width;
-
-    play.addEventListener('loadedmetadata', ()=>{
-        let videoHeight = play.videoHeight;
-        // let videoWidth = play.videoWidth;
-        
-        if(screenHeight >= 1080){
-            section.style.height = 110+'vh';
-        }else{
-            section.style.height = 90 + videoHeight/(screenHeight/100) + 'vh';
+for (let y = history_year; y <= g_date.getFullYear(); y++) {
+    if (y < g_date.getFullYear()) {
+        for (let m = history_month; m <= 12; m++) {
+            if(m == history_month){
+                for (let d = history_date + 1; d <= get_day_of_month(y, m); d++) {
+                    count++;
+                }
+            }else{
+                for(let d = 1; d <= get_day_of_month(y,m); d++){
+                    count++;
+                }
+            }
         }
-        // console.log(videoHeight/(screenHeight/100))
-        // console.log(section)
-    })
+    }else{
+        if(history_month == month_data[g_date.getMonth()]){
+            for (let d = 1; d <= get_day_of_month(y, history_month); d++) {
+                if (y == g_date.getFullYear() && history_month == month_data[g_date.getMonth()] && d <= g_date.getDate() ) {
+                    count++;
+                    if(d == g_date.getDate()){
+                        break;
+                    }
+                }else{
+                    count++;    
+                }
+            }
+        }else{
+            for (let m = 1; m <= month_data[g_date.getMonth()]; m++) {
+                for (let d = 1; d <= get_day_of_month(y, m); d++) {
+                    if (y == g_date.getFullYear() && m == month_data[g_date.getMonth()] && d <= g_date.getDate() ) {
+                        count++;
+                        if(d == g_date.getDate()){
+                            break;
+                        }
+                    }else{
+                        count++;    
+                    }
+                }
+            }
+        }
+    }
+}
 
-    window.addEventListener('scroll', ()=>{
-        let value = window.scrollY
-        stars.style.left = value * 0.25555555555555 + 'px';
-        moon.style.top = value * 1.0555555555555555 + 'px';
-        moutains_behind.style.top = value * 0.5 + 'px';
-        mountains_front.style.top = value * 0 + 'px';
-        // text.style.marginRight = value * 2.7 + 'px';
-        // text.style.marginTop = value * 1.5 + 'px';
-    })
-})();
+console.log("Tong ngay: " + (count));
+
+
+let printdate = document.getElementById('day');
+printdate.innerHTML = count;
+console.log(printdate);

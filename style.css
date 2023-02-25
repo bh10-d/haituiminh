@@ -1,126 +1,258 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-*{
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Tilt+Neon&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Dancing Script', cursive;
     scroll-behavior: smooth;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Tilt Neon', cursive; */
+
 }
 
-body{
-    min-height: 105vh;
+p{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+body {
+    min-height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(#2b1055,#7597de);
+    /* background: linear-gradient(#2b1055, #7597de); */
 }
 
-section{
-    position: relative;
-    width: 100%;
-    height: 105vh;
-    padding: 100px;
+.container {
+    /* width: 100%; */
+    /* height: 100vh; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+/*---header---*/
+.header {
+    /* height: 100vh; */
+    /* margin-top: 50px; */
+}
+
+.sub_header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 65px;
+}
+
+.header h2 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* color: #fff; */
+    position: absolute;
+    margin-left: -60px;
+    margin-top: -60px;
+}
+
+.header h2:nth-child(3){
+    margin-top: 15px;
+}
+
+.header h2:nth-child(4){
+    margin-top: 85px;
+}
+
+.progress {
+    width: 600px;
+    height: 10px;
+    background-color: #959595;
+    border-radius: 25px;
+}
+
+.progress div {
+    width: 100px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 25px;
+}
+
+.progress div span {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* border: 1px solid yellow; */
+    color: #fff;
+    /* background: #fff; */
+    float: right;
+    margin-top: -30px;
+    margin-right: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-section::before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to top,#1c0522, transparent);
-    z-index: 1000;
-}
-
-section img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-}
-
-section img#moon{
-    mix-blend-mode: screen;
-}
-section #mountains_front{
-    z-index: 10;
-}
-
-#text{
-    position: absolute;
-    /* top: 200px; */
-    /* right: -250px; */
-    color: #fff;
-    white-space: nowrap;
-    font-size: 7.5vw;
-    z-index: 50;
-}
-
-.sec{
+.heart{
     position: relative;
-    height: 100vh;
-    padding: 100px;
-    background-color: #1c0522;
+    display: inline-block;
+    width: 160px;
+    height: 250px;
+    background-color: pink;
+    border-radius: 80px 80px 0 0;
+    transform: rotate(45deg);
+}
+.heart::before{
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 250px;
+    background-color: pink;
+    border-radius: 80px 80px 0 0;
+    transform: rotate(-90deg);
+    left: -45px;
+    top: 45px;
 }
 
-.sec h2{
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-    color: #fff;
+/*---main---*/
+.main {
+    /* margin-top: 200px; */
+    margin-left: 15px;
 }
 
-.sec p{
-    font-size: 25px;
-    color: #fff;
+.main h2 {
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .sub_main {
-    width: 100%;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    transform: translateX(15%);
+    position: relative;
 }
 
-.text_box {
-    width: 40%;
-    margin-right: 10px;
+.sub_main .date {
+    padding-left: 6px;
 }
 
-.text_box p:nth-child(1){
-    font-size: 40px;
+.sub_main .date h2{
+    padding-left: 22px;
 }
 
-
-@media  screen and (max-width: 1366px) {
-    .sub_main{
-        transform: translateX(0)
-    }
+.main video{
+    margin-top: 15px;
+    margin-left: -10px;
+    margin-bottom: 15px;
 }
 
-@media screen and (max-width: 768px) {
-    .sec{
-        padding: 50px;
-    }
-    .sub_main{
-        flex-direction: column;
-        justify-content: space-around;
-    }
-    .text_box{
-        width: 100%;
-    }
-    .video{
-        width: 100%;
-        margin-top: 20px;
-    }
+.sub_main .date::before {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    background-color: pink;
+    /* top: 3px; */
+    margin-top: 3px;
+    left: 3px;
 }
-h1{
+
+.sub_main .content{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.sub_main .content::before{
+    content: "";
+    background-color: pink;
+    position: absolute;
+    height: 900px;
+    width: 3px;
+    margin-top: -17px;
+    left: 8px;
+    z-index: -10;
+    overflow-x: hidden;
+}
+
+.sub_main .content .sub_content {
+    margin-left: 10px;
+    margin-right: 18px;
+}
+
+.date .comming_soon{
     text-align: center;
-    margin-top: 400px;
 }
-    
+
+/* .dots-list {
+    width: 100%;
+}
+
+.dots-list ol {
+    padding-left: 150px;
+    position: relative;
+    margin-bottom: 20px;
+    list-style: none !important;
+}
+
+.dots-list ol li {
+    position: relative;
+    margin-top: 1.0em;
+    margin-bottom: 22px;
+}
+
+.dots-list ol li .date {
+    position: absolute;
+    left: -115px;
+    font-weight: bold;
+    font-size: 1em;
+    top: -2px;
+}
+
+.dots-list ol li:before {
+    content: "";
+    background: #35a6cb;
+    position: absolute;
+    width: 2px;
+    top: 5px;
+    bottom: -25px;
+    left: -24px;
+}
+
+.dots-list ol li:after {
+    content: "";
+    background: #c7d8dd;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    border: 2px solid #35a6cb;
+    top: 5px;
+    left: -31px;
+}
+
+.dots-list ol li:last-child:before {
+    content: "";
+    background: rgba(0, 0, 0, 0);
+} */
+
+
+
+/*---footer---*/
+.footer {
+    height: 100vh;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub_footer {
+    position: relative;
+    margin-left: 65px;
+}
+
+.sub_footer h4{
+    position: absolute;
+    margin-top: -170px;
+    margin-left: -60px;
+}
