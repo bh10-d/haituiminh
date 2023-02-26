@@ -30,12 +30,14 @@ body {
     /* display: flex;
     align-items: center;
     justify-content: center; */
+    /* position: relative; */
 }
 
 /*---header---*/
 .header {
     /* height: 100vh; */
     /* margin-top: 50px; */
+    position: relative;
 }
 
 .sub_header {
@@ -43,24 +45,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 65px;
+    /* margin-left: 65px; */
 }
 
 .header h2 {
     font-weight: 700;
     letter-spacing: 1px;
-    /* color: #fff; */
+    line-height: 30px;
+    text-align: center;
+}
+
+.heart{
+    margin-left: 65px;
+}
+
+.heart_content {
+    display: block;
     position: absolute;
-    margin-left: -60px;
-    margin-top: -60px;
-}
-
-.header h2:nth-child(3){
-    margin-top: 15px;
-}
-
-.header h2:nth-child(4){
-    margin-top: 85px;
 }
 
 .progress {
