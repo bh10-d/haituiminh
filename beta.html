@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    đăng tải yêu thương
+    <!-- <form action=""> -->
+        <p>ngày</p>
+        <input id="date" type="date">
+        <p>nội dung</p>
+        <input id="content" type="text">
+        <p>hình ảnh</p>
+        <input id="file" type="file"><br>
+        <button id="submit" type="submit">submit</button>
+    <!-- </form> -->
+    <script>
+        let submit = document.getElementById('submit');
+        let date = document.getElementById('date');
+        let content = document.getElementById('content');
+        let file = document.getElementById('file');
+        submit.addEventListener('click', () => {
+            console.log(date.value);
+            console.log(content.value);
+            console.log(file.value);
+        });
+    </script>
+</body>
+</html>

@@ -137,6 +137,12 @@ body {
     padding-left: 22px;
 }
 
+.sub_main .date a{
+    padding-left: 22px;
+    text-decoration: none;
+    color: black;
+}
+
 .main video{
     margin-top: 15px;
     margin-left: -10px;
@@ -164,7 +170,7 @@ body {
     content: "";
     background-color: pink;
     position: absolute;
-    height: 900px;
+    height: var(--height,auto);
     width: 3px;
     margin-top: -17px;
     left: 8px;
