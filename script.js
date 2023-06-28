@@ -87,4 +87,22 @@
         // console.log(arr[i].children[0].clientHeight);
         arr[i].style.setProperty('--height', `${arr[i].children[0].clientHeight + 20}px`);
     }
+
+
+    let menu = document.getElementById("menu");
+    let btn_menu = document.getElementById("btn_menu");
+
+    btn_menu.addEventListener("click",()=>{
+        if(menu.style.display == "block"){
+            menu.style.display = "none";
+            btn_menu.innerHTML = "<box-icon name='menu'></box-icon>"
+            // btn_menu.style.left = 0;
+        }else{
+            menu.style.display = "block";
+            btn_menu.innerHTML = "<box-icon name='x' ></box-icon>"
+            // btn_menu.style.right = 0;
+        }
+        console.log(menu.style.display)
+    })
+
 })();
