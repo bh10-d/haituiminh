@@ -102,7 +102,7 @@
             btn_menu.innerHTML = "<box-icon name='x' ></box-icon>"
             // btn_menu.style.right = 0;
         }
-        console.log(menu.style.display)
+        // console.log(menu.style.display)
     })
 
 })();

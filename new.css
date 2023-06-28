@@ -9,3 +9,17 @@
         stroke-dashoffset: 0;
     }
 }
+
+/*firefox*/
+@-moz-keyframes line-anim {
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+/*google chrome va safari*/
+@-webkit-keyframes line-anim {
+    to{
+        stroke-dashoffset: 0;
+    }
+}
