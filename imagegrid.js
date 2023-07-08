@@ -23,58 +23,15 @@ for(let i = 0; i < color1.length; i++){
     //     });
     // }
     if(color1[i].children.length != 0){
-        getId_image.push({
-            // id: color1[i].id,
-            src: color1[i].children[0].attributes[0].value
-        });
+        // if(getId_image.find((f)=> f.src == color1[i].children[0].attributes[0].value)){
+            getId_image.push({
+                // id: color1[i].id,
+                src: color1[i].children[0].attributes[0].value
+            });
+        // }
     }
     // console.log(color1)
     // console.log(color1[i].children[0].attributes[0].value) //color1[i].children[0].src // se ra url
-}
-for(let i = 0; i < color2.length; i++){
-    color2[i].addEventListener("click",clickImage)
-    // if(color2[i].id != ''){
-    //     getId_image.push({
-    //         id: color2[i].id,
-    //         src: color2[i].children[0].attributes[0].value
-    //     });
-    // }
-    if(color1[i].children.length != 0){
-        getId_image.push({
-            // id: color1[i].id,
-            src: color2[i].children[0].attributes[0].value
-        });
-    }
-}
-for(let i = 0; i < color3.length; i++){
-    color3[i].addEventListener("click",clickImage)
-    // if(color3[i].id != ''){
-    //     getId_image.push({
-    //         id: color3[i].id,
-    //         src: color3[i].children[0].attributes[0].value
-    //     });
-    // }
-    if(color1[i].children.length != 0){
-        getId_image.push({
-            // id: color1[i].id,
-            src: color3[i].children[0].attributes[0].value
-        });
-    }
-}
-for(let i = 0; i < color4.length; i++){
-    color4[i].addEventListener("click",clickImage)
-    // if(color4[i].id != ''){
-    //     getId_image.push({
-    //         id: color4[i].id,
-    //         src: color4[i].children[0].attributes[0].value
-    //     });
-    // }
-    if(color1[i].children.length != 0){
-        getId_image.push({
-            // id: color1[i].id,
-            src: color4[i].children[0].attributes[0].value
-        });
-    }
 }
 
 function clickImage(property){
@@ -99,16 +56,40 @@ bc_modal.addEventListener("click", function(){
 })
 
 p_modal_button.addEventListener("click", function(){
-    c_modal.children[0].attributes[0].value = 'image/72c17c9f004ddd13845c.jpg';
-    console.log("previous image");
-
+    let index = getId_image.map(function (img) { return img.src; }).indexOf(c_modal.children[0].attributes[0].value);
+    if(index >= 0){
+        // c_modal.innerHTML = `<img src="image/2af5673714e5c9bb90f4.jpg" alt="">`;
+        c_modal.innerHTML = `<img src="${getId_image[index-1].src}" alt="">`;
+        // c_modal.children[0].attributes[0].value = 'image/72c17c9f004ddd13845c.jpg';
+        console.log(index);
+        console.log("previous image");
+    }
 })
 
 n_modal_button.addEventListener("click", function(){
+    let index = getId_image.map(function (img) { return img.src; }).indexOf(c_modal.children[0].attributes[0].value);
+    c_modal.innerHTML = `<img src="${getId_image[index+1].src}" alt="">`;
     console.log("next image");
+    console.log(index);
+    console.log()
 })
 
 
+function find(needle, haystack) {
+    var results = [];
+    var idx = haystack.indexOf(needle);
+    while (idx != -1) {
+        results.push(idx);
+        idx = haystack.indexOf(needle, idx + 1);
+    }
+    return results;
+}
+
 console.log(getId_image);
+// console.log(getId_image.find((f)=> f.src == 'image/72c17c9f004ddd13845c.jpg'));
+// console.log(getId_image.filter((item, index) => getId_image.indexOf(item) === index))
 // console.log(getId_image.find((f)=> f.id == 'bdh_image_3'))
 // console.log(c_modal.children[0].attributes[0].value);
+
+// var index = getId_image.map(function (img) { return img.src; }).indexOf('image/72c17c9f004ddd13845c.jpg');
+// console.log(index);
