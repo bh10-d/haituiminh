@@ -4,92 +4,57 @@
 }
 .parent{
     position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 .container{
-    padding-top: 120px;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* flex-wrap: wrap; */
-    grid-template-columns: 4;
     position: absolute;
-    z-index: 10;
-    /* overflow: hidden; */
+    padding-top: 120px;
+    width: 90%;
+    /* height: 100vh; */
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* row-gap: 2px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center;
+    flex-wrap: wrap;
+    flex: 20%; */
+    /* flex-direction: row; */
+    /* align-content: stretch; */
     background-color: white;
+    z-index: 10;
 }
 
 .color1{
     width: 120px;
     height: 240px;
-    background-color: red;
+    /* background-color: red; */
     /* border: 1px solid black; */
     margin: 1px;
+    border-radius: 6px;
+    /* place-self: center; */
 }
 .color1 img{
     height: 100%;
     width: 100%;
+    border-radius: 6px;
 }
-.color2{
-    width: 120px;
-    height: 240px;
-    background-color: yellow;  
-    /* border: 1px solid black; */
-    margin: 1px;
-}
-.color2 img{
+.color1 video{
     height: 100%;
     width: 100%;
-}
-.color3{
-    width: 120px;
-    height: 240px;
-    background-color: green;
-    /* border: 1px solid black; */
-    margin: 1px;
-}
-.color3 img{
-    height: 100%;
-    width: 100%;
-}
-.color4{
-    width: 120px;
-    height: 240px;
-    background-color: blue;
-    /* border: 1px solid black; */
-    margin: 1px;
-}
-.color4 img{
-    height: 100%;
-    width: 100%;
+    border-radius: 6px;
 }
 
 @media screen and (max-width: 414px) {
     .color1{
         width: 90px;
         height: 120px;
-        background-color: red;
+        /* background-color: red; */
         /* border: 1px solid black; */
-    }
-    .color2{
-        width: 90px;
-        height: 120px;
-        background-color: yellow;  
-        /* border: 1px solid black;   */
-    }
-    .color3{
-        width: 90px;
-        height: 120px;
-        background-color: green;
-        /* border: 1px solid black;     */
-    }
-    .color4{
-        width: 90px;
-        height: 120px;
-        background-color: blue;
-        /* border: 1px solid black;     */
     }
 }
 
@@ -99,7 +64,7 @@
     width: 100%;
     position: fixed;
     z-index: 1;
-    /* opacity: 0.8; */
+    opacity: 0;
     /* overflow: hidden; */
 }
 

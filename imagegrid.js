@@ -36,6 +36,7 @@ for(let i = 0; i < color1.length; i++){
 
 function clickImage(property){
     h_modal.style.zIndex = "10";
+    h_modal.style.opacity = 1;
     container.style.zIndex = "0";
     // if(getId_image.find((f)=> f.id == property.target.parentNode.id) != undefined){
         //     c_modal.children[0].attributes[0].value = getId_image.find((f)=> f.id == property.target.parentNode.id).src;
@@ -46,13 +47,14 @@ function clickImage(property){
     }
     // console.log(getId_image.find((f)=> f.src == 'image/72c17c9f004ddd13845c.jpg'))
     // console.log(property.target.attributes[0].value)
-    console.log("image click");
+    // console.log("image click");
 }
 
 bc_modal.addEventListener("click", function(){
     h_modal.style.zIndex = "0";
+    h_modal.style.opacity = 0;
     container.style.zIndex = "10";
-    console.log("b_modal");
+    // console.log("b_modal");
 })
 
 p_modal_button.addEventListener("click", function(){
@@ -61,29 +63,29 @@ p_modal_button.addEventListener("click", function(){
         // c_modal.innerHTML = `<img src="image/2af5673714e5c9bb90f4.jpg" alt="">`;
         c_modal.innerHTML = `<img src="${getId_image[index-1].src}" alt="">`;
         // c_modal.children[0].attributes[0].value = 'image/72c17c9f004ddd13845c.jpg';
-        console.log(index);
-        console.log("previous image");
+        // console.log(index);
+        // console.log("previous image");
     }
 })
 
 n_modal_button.addEventListener("click", function(){
     let index = getId_image.map(function (img) { return img.src; }).indexOf(c_modal.children[0].attributes[0].value);
     c_modal.innerHTML = `<img src="${getId_image[index+1].src}" alt="">`;
-    console.log("next image");
-    console.log(index);
-    console.log()
+    // console.log("next image");
+    // console.log(index);
+    // console.log()
 })
 
 
-function find(needle, haystack) {
-    var results = [];
-    var idx = haystack.indexOf(needle);
-    while (idx != -1) {
-        results.push(idx);
-        idx = haystack.indexOf(needle, idx + 1);
-    }
-    return results;
-}
+// function find(needle, haystack) {
+//     var results = [];
+//     var idx = haystack.indexOf(needle);
+//     while (idx != -1) {
+//         results.push(idx);
+//         idx = haystack.indexOf(needle, idx + 1);
+//     }
+//     return results;
+// }
 
 console.log(getId_image);
 // console.log(getId_image.find((f)=> f.src == 'image/72c17c9f004ddd13845c.jpg'));
