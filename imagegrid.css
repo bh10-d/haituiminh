@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.parent{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    position: absolute;
+    padding-top: 120px;
+    width: 90%;
+    /* height: 100vh; */
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* row-gap: 2px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center;
+    flex-wrap: wrap;
+    flex: 20%; */
+    /* flex-direction: row; */
+    /* align-content: stretch; */
+    background-color: white;
+    z-index: 10;
+}
+
+.color1{
+    width: 120px;
+    height: 240px;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    margin: 1px;
+    border-radius: 6px;
+    /* place-self: center; */
+}
+.color1 img{
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+.color1 video{
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 414px) {
+    .color1{
+        width: 90px;
+        height: 120px;
+        /* background-color: red; */
+        /* border: 1px solid black; */
+    }
+}
+
+#h_modal{
+    background-color: rgba(128, 128, 128, 0.9);
+    height: calc(100vh + 120px);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    opacity: 0;
+    /* overflow: hidden; */
+}
+
+
+.b_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    height: 100vh;
+    position: relative;
+}
+
+.p_modal_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* background-color: black; */
+    height: 100vh;
+    width: 50px;
+    /* color: white; */
+    /* font-size: 25px; */
+    left: 0;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.n_modal_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* background-color: black;  */
+    height: 100vh;
+    width: 50px;
+    /* color: white !important; */
+    /* font-size: 25px; */
+    right: 0;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.bc_modal{
+    position: absolute;
+    /* background-color: red; */
+    /* background-color: rgba(128, 128, 128, 0.5); */
+    height: 100vh;
+    width: 71%;
+    top: 0;
+    left: 60px;
+}
+
+.c_modal img{
+    height: 100%;
+    width: 100%;
+}

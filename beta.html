@@ -28,5 +28,58 @@
             console.log(file.value);
         });
     </script>
+
+
+
+
+
+
+<!-- firebase -->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtnggnLxqL2ldriWE0N7SSPW9b--2qPWI",
+      authDomain: "chatapp-3714d.firebaseapp.com",
+      databaseURL: "https://chatapp-3714d-default-rtdb.firebaseio.com",
+      projectId: "chatapp-3714d",
+      storageBucket: "chatapp-3714d.appspot.com",
+      messagingSenderId: "50177120322",
+      appId: "1:50177120322:web:59a46dac9246c4b5fef5db",
+      measurementId: "G-CPXK9SXQ5J"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+
+
+
+
+    // test
+
+    import { getStorage, ref } from "firebase/storage";
+
+    // Create a reference with an initial file path and name
+    const storage = getStorage();
+    const pathReference = ref(storage, 'images/stars.jpg');
+
+    // Create a reference from a Google Cloud Storage URI
+    const gsReference = ref(storage, 'gs://bucket/images/stars.jpg');
+
+    // Create a reference from an HTTPS URL
+    // Note that in the URL, characters are URL escaped!
+    const httpsReference = ref(storage, 'https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg');  
+    console.log(httpsReference)
+  </script>
+<!-- end firebase -->
 </body>
 </html>
