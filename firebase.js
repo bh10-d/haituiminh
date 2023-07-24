@@ -1,3 +1,6 @@
+//hieu
+import { getData, clickImageNew } from "./imagegrid.js";
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
@@ -22,22 +25,40 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 import { getDatabase,  child, onValue, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"
-import { getStorage, ref, getDownloadURL, listAll  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
+import { getStorage, ref, getDownloadURL, listAll, list  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
 
 // const db = getDatabase();
-const storage = getStorage();
+// const storage = getStorage();
 
 
 // console.log(ref(storage, 'videos'))
 
+let getListImageFireBase = [];
 
-//lay link ve thanh cong
-function getdataonce(){
+function getDataImage(){
     const storage = getStorage();
-    // console.log(storage)
-    listAll(ref(storage, 'images'))
+    list(ref(storage, 'hieuthao')) //list or listAll
     .then((url)=>{
-         // `url` is the download URL for 'images/stars.jpg'
+        // getListImageFireBase = url.items.map((m)=>{m})
+        getListImageFireBase = Object.entries(url).map(entry => entry[1])[1].map(m=>m._location.path);
+        // console.log(url)
+        // console.log(typeof url)
+        // console.log(getListImageFireBase[1].map(m=>m._location.path))
+        // console.log(getListImageFireBase)
+        // return getListImageFireBase
+        for(let i = 0; i < getListImageFireBase.length; i++) {
+            getURLImage(getListImageFireBase[i])
+        }
+    })
+    // console.log(getListImageFireBase)
+}
+
+function getURLImage(path) {
+    const storage = getStorage();
+    
+    getDownloadURL(ref(storage, path))
+    .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
 
         // This can be downloaded directly:
         const xhr = new XMLHttpRequest();
@@ -48,8 +69,43 @@ function getdataonce(){
         xhr.open('GET', url);
         // xhr.send();
 
-        console.log(url)
+        // console.log(url)
+        // Or inserted into an <img> element || example
+        // const img = document.getElementById('test');
+        // img.setAttribute('src', url);
+
+        const div = document.getElementById('container');
+        // div.innerHTML += `<div class="color1" ><img src="${url}" alt=""></div>`;
+
+        const divImg = document.createElement('div');
+        const img = document.createElement('img');
+        divImg.className = 'color1';
+        divImg.onclick = (e) => {clickImageNew(e)}
+        img.src = url;
+        div.appendChild(divImg);
+        divImg.appendChild(img);
+        
+
+        //dom ảo
+        // const divImg = document.createElement('div');
+        // const img = document.createElement('img');
+        // div.appendChild(divImg);
+        // divImg.className="color1";
+        // img.setAttribute('src', url)
+        // divImg.appendChild(img);
     })
+    .catch((error) => {
+        // Handle any errors
+    });
+    getData(path)
+}
+
+function getdataonce(){
+    // const storage = getStorage();
+    
+    getDataImage();
+    
+    
     // getDownloadURL(ref(storage, 'images/1.jpg'))
     // .then((url) => {
     //     // `url` is the download URL for 'images/stars.jpg'
@@ -74,6 +130,9 @@ function getdataonce(){
 }
 
 window.onload = getdataonce
+
+
+
 
 /* tham khao
 

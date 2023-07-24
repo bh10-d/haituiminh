@@ -1,7 +1,4 @@
 let color1 = document.getElementsByClassName("color1");
-let color2 = document.getElementsByClassName("color2");
-let color3 = document.getElementsByClassName("color3");
-let color4 = document.getElementsByClassName("color4");
 let h_modal = document.getElementById("h_modal");
 let bc_modal = document.getElementById("bc_modal");
 let p_modal_button = document.getElementById("p_modal_button");
@@ -11,9 +8,8 @@ let container = document.getElementById("container");
 let getId_image = [];
 
 
-
 // -------------------------------FUNCTIONS--------------------------------- //
-// console.log(color4)
+// console.log(color1)//dom ao
 for(let i = 0; i < color1.length; i++){
     color1[i].addEventListener("click",clickImage)
     // if(color1[i].id != ''){
@@ -30,8 +26,8 @@ for(let i = 0; i < color1.length; i++){
             });
         // }
     }
-    // console.log(color1)
-    // console.log(color1[i].children[0].attributes[0].value) //color1[i].children[0].src // se ra url
+    console.log(color1)
+    console.log(color1[i].children[0].attributes[0].value) //color1[i].children[0].src // se ra url
 }
 
 function clickImage(property){
@@ -87,7 +83,7 @@ n_modal_button.addEventListener("click", function(){
 //     return results;
 // }
 
-console.log(getId_image);
+// console.log(getId_image);
 // console.log(getId_image.find((f)=> f.src == 'image/72c17c9f004ddd13845c.jpg'));
 // console.log(getId_image.filter((item, index) => getId_image.indexOf(item) === index))
 // console.log(getId_image.find((f)=> f.id == 'bdh_image_3'))
@@ -95,3 +91,25 @@ console.log(getId_image);
 
 // var index = getId_image.map(function (img) { return img.src; }).indexOf('image/72c17c9f004ddd13845c.jpg');
 // console.log(index);
+
+function clickImageNew(e) {
+    // console.log(`ashdjksd`);
+    // console.log(e);
+    h_modal.style.zIndex = "10";
+    h_modal.style.opacity = 1;
+    container.style.zIndex = "0";   
+    // console.log(e.target.currentSrc)
+    // console.log('clickImage');
+    c_modal.children[0].attributes[0].value = e.target.currentSrc
+        
+}
+
+function test(){
+    console.log("asgdjhgasd")
+}
+
+function getData(image){
+    getId_image.push(image)
+    // console.log(getId_image);
+}
+export {getData, clickImageNew}
