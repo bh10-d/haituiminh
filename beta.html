@@ -12,52 +12,40 @@
         <p>ngày</p>
         <input id="date" type="date">
         <p>nội dung</p>
-        <input id="content" type="text">
+        <!-- <input id="content" type="text"> -->
+        <!-- <div id="editor"></div> -->
+        <textarea name="content" id="editor">
+        </textarea>
         <p>hình ảnh</p>
-        <input id="file" type="file"><br>
+        <input id="file" type="file" multiple><br>
+        <div id="showimage"></div>
         <button id="submit" type="submit">submit</button>
-    <!-- </form> -->
-    <script>
-        let submit = document.getElementById('submit');
-        let date = document.getElementById('date');
-        let content = document.getElementById('content');
-        let file = document.getElementById('file');
-        submit.addEventListener('click', () => {
-            console.log(date.value);
-            console.log(content.value);
-            console.log(file.value);
-        });
-    </script>
-
-
-
-
-
+<script type="module" src="js/upload.js"></script>
 
 <!-- firebase -->
 <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+    // // TODO: Add SDKs for Firebase products that you want to use
+    // // https://firebase.google.com/docs/web/setup#available-libraries
   
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDtnggnLxqL2ldriWE0N7SSPW9b--2qPWI",
-      authDomain: "chatapp-3714d.firebaseapp.com",
-      databaseURL: "https://chatapp-3714d-default-rtdb.firebaseio.com",
-      projectId: "chatapp-3714d",
-      storageBucket: "chatapp-3714d.appspot.com",
-      messagingSenderId: "50177120322",
-      appId: "1:50177120322:web:59a46dac9246c4b5fef5db",
-      measurementId: "G-CPXK9SXQ5J"
-    };
+    // // Your web app's Firebase configuration
+    // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // const firebaseConfig = {
+    //     apiKey: "AIzaSyDtnggnLxqL2ldriWE0N7SSPW9b--2qPWI",
+    //     authDomain: "chatapp-3714d.firebaseapp.com",
+    //     databaseURL: "https://chatapp-3714d-default-rtdb.firebaseio.com",
+    //     projectId: "chatapp-3714d",
+    //     storageBucket: "chatapp-3714d.appspot.com",
+    //     messagingSenderId: "50177120322",
+    //     appId: "1:50177120322:web:752636dd7a024911fef5db",
+    //     measurementId: "G-CYN4W9DCNS"
+    //     };
   
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    // // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
 
 
 
@@ -66,19 +54,20 @@
 
     // test
 
-    import { getStorage, ref } from "firebase/storage";
+    // import { getStorage, ref } from "firebase/storage";
 
-    // Create a reference with an initial file path and name
-    const storage = getStorage();
-    const pathReference = ref(storage, 'images/stars.jpg');
+    // // Create a reference with an initial file path and name
+    // const storage = getStorage();
+    // const pathReference = ref(storage, 'images/stars.jpg');
 
-    // Create a reference from a Google Cloud Storage URI
-    const gsReference = ref(storage, 'gs://bucket/images/stars.jpg');
+    // // Create a reference from a Google Cloud Storage URI
+    // const gsReference = ref(storage, 'gs://bucket/images/stars.jpg');
 
-    // Create a reference from an HTTPS URL
-    // Note that in the URL, characters are URL escaped!
-    const httpsReference = ref(storage, 'https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg');  
-    console.log(httpsReference)
+    // // Create a reference from an HTTPS URL
+    // // Note that in the URL, characters are URL escaped!
+    // const httpsReference = ref(storage, 'https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg');  
+    // console.log("test")
+    // console.log(httpsReference)
   </script>
 <!-- end firebase -->
 </body>

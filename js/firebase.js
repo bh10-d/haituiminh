@@ -1,9 +1,12 @@
 //hieu
-import { getData, clickImageNew } from "./imagegrid.js";
+import { getData, clickImageNew } from "../js/imagegrid.js";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+import { getDatabase,  child, onValue, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"
+import { getStorage, ref, getDownloadURL, listAll, list, uploadBytesResumable   } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
+import { getFirestore, getDocs, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,16 +26,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
-import { getDatabase,  child, onValue, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"
-import { getStorage, ref, getDownloadURL, listAll, list  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
+const db = getFirestore(app);
+const storage = getStorage();
 
 // const db = getDatabase();
-// const storage = getStorage();
-
 
 // console.log(ref(storage, 'videos'))
 
+// comment tu day
 let getListImageFireBase = [];
 
 function getDataImage(){
@@ -128,10 +129,59 @@ function getdataonce(){
     //     // Handle any errors
     // });
 }
+//den day
 
 window.onload = getdataonce
 
 
+//test
+
+// const imageRef = ref(storage, 'images/' + file.name);
+// uploadBytesResumable(imageRef, file, metadata)
+//   .then((snapshot) => {
+//     console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+//     console.log('File metadata:', snapshot.metadata);
+//     // Let's get a download URL for the file.
+//     getDownloadURL(snapshot.ref).then((url) => {
+//       console.log('File available at', url);
+//       // ...
+//     });
+//   }).catch((error) => {
+//     console.error('Upload failed', error);
+//     // ...
+//   });
+
+//end test
+
+
+const querySnapshot = await getDocs(collection(db, "hieuthaohtml"));
+function getDataFromFireBase(){
+    let dataArray = [];
+    querySnapshot.forEach((doc) => {
+    //   console.log(`${doc.id} => ${doc.data().content}`);//doc.data()
+    //   console.log(doc.data());
+        dataArray.push(doc.data());
+    });
+    return dataArray;
+}
+
+export {
+        getDatabase,
+        child,
+        onValue,
+        get,
+        getStorage,
+        ref,
+        getDownloadURL,
+        listAll,
+        list,
+        getFirestore, 
+        db, 
+        getDocs,
+        collection,
+        addDoc,
+        getDataFromFireBase
+    }
 
 
 /* tham khao

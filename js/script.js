@@ -1,3 +1,4 @@
+import { getDataFromFireBase } from '../js/firebase.js';
 (()=>{
     let g_date = new Date();
     let month_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -105,4 +106,35 @@
         // console.log(menu.style.display)
     })
 
+    //test
+    let sub_main = document.getElementById('sub_main');
+    let div_date = document.createElement('div');
+    let h2_date = document.createElement('h2');
+    let div_content = document.createElement('div');
+    let div_sub_content =document.createElement('div');
+
+    sub_main.appendChild(div_date);
+    div_date.appendChild(h2_date);
+    div_date.appendChild(div_content);
+    div_content.appendChild(div_sub_content);
+
+    sub_main.className = "sub_main";
+    div_date.className = "date";
+    div_content.className = "content";
+    div_sub_content.className = "sub_content";
+
+    let test = getDataFromFireBase()
+    test.forEach((doc) => {
+        sub_main.innerHTML +=     `
+        <div class="date">
+            <h2 id="${doc.time}">${doc.time}</h2>
+            <div class="content">
+                <div class="sub_content">
+                    ${doc.content}
+                </div>
+            </div>
+        </div>
+        `
+    })
+    // console.log(test);
 })();
