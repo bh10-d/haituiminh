@@ -5,7 +5,7 @@ import { getData, clickImageNew } from "../js/imagegrid.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
 import { getDatabase,  child, onValue, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"
-import { getStorage, ref, getDownloadURL, listAll, list, uploadBytesResumable   } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
+import { getStorage, ref, getDownloadURL, listAll, list, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
 import { getFirestore, getDocs, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -171,6 +171,7 @@ export {
         onValue,
         get,
         getStorage,
+        storage,
         ref,
         getDownloadURL,
         listAll,
@@ -180,7 +181,8 @@ export {
         getDocs,
         collection,
         addDoc,
-        getDataFromFireBase
+        getDataFromFireBase,
+        uploadBytesResumable
     }
 
 

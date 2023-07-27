@@ -133,6 +133,7 @@ import { getDataFromFireBase } from '../js/firebase.js';
                     ${doc.content}
                 </div>
             </div>
+            ${doc.image}
         </div>
         `
     })
