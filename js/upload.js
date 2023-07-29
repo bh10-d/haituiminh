@@ -1,4 +1,4 @@
-import { getDocs, collection, db, addDoc, getDataFromFireBase, getStorage, ref, storage, uploadBytesResumable, getDownloadURL } from '../js/firebase.js';
+import { getDocs, collection, db, addDoc, getDataFromFireBase, ref, storage, uploadBytesResumable, getDownloadURL } from '../js/firebase.js';
 import "https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"; //CKeditor5 
 
 let submit = document.getElementById('submit');
@@ -39,7 +39,7 @@ file.addEventListener("change", (event) => {
     // dataImage.push(...dataPreviousImage, event.target.files[0]);
     console.log("files", files)
     for(let i = 0; i < event.target.files.length; i++) {
-        // showImage.innerHTML += `<img src="/image/${files[i].name}"/>`
+        showImage.innerHTML += `<img width="95%" height="100%" src="/image/${files[i].name}"/>`
         // uploadFile(event.target.files[i]);
         dataPreviousImage.push(event.target.files[i]);
     }

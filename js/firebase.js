@@ -170,7 +170,6 @@ export {
         child,
         onValue,
         get,
-        getStorage,
         storage,
         ref,
         getDownloadURL,

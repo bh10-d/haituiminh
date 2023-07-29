@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/uploadcontent.css">
     <title>Document</title>
 </head>
 <body>
-    đăng tải yêu thương
-    <!-- <form action=""> -->
-        <p>ngày</p>
-        <input id="date" type="date">
-        <p>nội dung</p>
-        <!-- <input id="content" type="text"> -->
-        <!-- <div id="editor"></div> -->
-        <textarea name="content" id="editor">
-        </textarea>
-        <p>hình ảnh</p>
-        <input id="file" type="file" multiple><br>
-        <div id="showimage"></div>
-        <button id="submit" type="submit">submit</button>
+    <div class="container">
+        <div>
+            <h1>
+                Đăng tải yêu thương
+            </h1>
+            <p>Ngày đăng:</p>
+            <input id="date" type="date">
+            <p>Nội dung:</p>
+            <!-- <input id="content" type="text"> -->
+            <!-- <div id="editor"></div> -->
+            <textarea name="content" id="editor">
+            </textarea>
+            <p>Hình ảnh hoặc Video:</p>
+            <input id="file" type="file" multiple /><br>
+            <div id="showimage"></div>
+            <img width="95%" height="100%" src="/image/one.png"/>
+            <button id="submit" type="submit">ĐĂNG TẢI</button>
+        </div>
+    </div>
+    <div class="loading">
+        test
+    </div>
 <script type="module" src="js/upload.js"></script>
 
 <!-- firebase -->
