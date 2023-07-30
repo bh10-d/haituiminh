@@ -5,30 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/uploadcontent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <div>
+        <div class="sub_container">
             <h1>
                 Đăng tải yêu thương
             </h1>
             <p>Ngày đăng:</p>
-            <input id="date" type="date">
+            <input id="date" type="date" >
             <p>Nội dung:</p>
             <!-- <input id="content" type="text"> -->
             <!-- <div id="editor"></div> -->
             <textarea name="content" id="editor">
             </textarea>
             <p>Hình ảnh hoặc Video:</p>
-            <input id="file" type="file" multiple /><br>
+            <div class="sub_container_file">
+                <input id="file" type="file" multiple value="" /><br>
+            </div>
             <div id="showimage"></div>
-            <img width="95%" height="100%" src="/image/one.png"/>
-            <button id="submit" type="submit">ĐĂNG TẢI</button>
+            <!-- <img width="95%" height="100%" src="/image/one.png"/> -->
+            <button id="submit" type="submit">ĐĂNG TẢI LÊN THÔI</button>
         </div>
     </div>
-    <div class="loading">
-        test
+    <div id="loading" class="loading hidden">
+        <div class="loader"></div>
+        <div><p>Đang đăng tải yêu thương</p></div>
+        <div id="percents"></div>
     </div>
 <script type="module" src="js/upload.js"></script>
 

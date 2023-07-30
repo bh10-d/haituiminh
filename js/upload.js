@@ -7,6 +7,8 @@ let content = document.getElementById('content');
 let myEditor;
 let file = document.querySelector('#file');
 let showImage = document.getElementById('showimage');
+let isLoading = document.getElementById('loading');
+let percents = document.getElementById('percents');
 let g_date = new Date();
 let month_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 let dataPreviousImage = [];
@@ -59,6 +61,7 @@ uploadTask.on('state_changed',
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
+    percents.innerHTML = parseInt(progress)+"%";
     switch (snapshot.state) {
         case 'paused':
         console.log('Upload is paused');
@@ -102,17 +105,18 @@ uploadTask.on('state_changed',
     }
 );
 }
-
 //end upload image
+
 
 submit.addEventListener('click', () => {
     // console.log(date.value);
     // console.log(myEditor.getData());
     // console.log(file);
-
-
+    
+    
     dataPreviousImage.map(file=>uploadFile(file));
-
+    
+    isLoading.classList.remove('hidden'); //isLoading
     // if(date.value != ""){
     //     console.log(date.valueAsDate.getDate()+'/'+month_data[date.valueAsDate.getMonth()]+'/'+date.valueAsDate.getFullYear());
     // }
@@ -140,6 +144,7 @@ async function uploadData({date, content, image}){
             image: image
         });
         console.log("Document written with ID: ", docRef.id);
+        isLoading.classList.add("hidden");
       } catch (e) {
         console.error("Error adding document: ", e);
       }
