@@ -6,7 +6,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
 import { getDatabase,  child, onValue, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"
 import { getStorage, ref, getDownloadURL, listAll, list, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
-import { getFirestore, getDocs, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"
+import { getFirestore, getDocs, collection, addDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -94,11 +94,13 @@ function getURLImage(path) {
         // divImg.className="color1";
         // img.setAttribute('src', url)
         // divImg.appendChild(img);
+
+        getData(url)
     })
     .catch((error) => {
         // Handle any errors
     });
-    getData(path)
+    // getData(path)
 }
 
 function getdataonce(){
@@ -153,8 +155,9 @@ window.onload = getdataonce
 
 //end test
 
+const q = query(collection(db, "hieuthaohtml"), orderBy("time", "asc"));
 
-const querySnapshot = await getDocs(collection(db, "hieuthaohtml"));
+const querySnapshot = await getDocs(q);
 function getDataFromFireBase(){
     let dataArray = [];
     querySnapshot.forEach((doc) => {

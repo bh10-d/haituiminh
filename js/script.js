@@ -61,7 +61,6 @@ import { getDataFromFireBase } from '../js/firebase.js';
     
     let printdate = document.getElementById('day');
     printdate.innerHTML = count;
-    // console.log(printdate);
     
     
     let quickaccess = document.getElementById('quickaccess');
@@ -81,13 +80,14 @@ import { getDataFromFireBase } from '../js/firebase.js';
     // console.log(divsub.clientHeight);
     
     // divcontent.style.setProperty('--height', `${divsub.clientHeight + 20}px`);
-    let arr = document.querySelectorAll('.content');
+    // let arr = document.querySelectorAll('.content');
+    // console.log(arr)
     // console.log(arr[0].children[0].clientHeight);
     
-    for(let i = 0; i < arr.length; i++){
-        // console.log(arr[i].children[0].clientHeight);
-        arr[i].style.setProperty('--height', `${arr[i].children[0].clientHeight + 20}px`);
-    }
+    // for(let i = 0; i < arr.length; i++){
+    //     // console.log(arr[i].children[0].clientHeight);
+    //     arr[i].style.setProperty('--height', `${arr[i].children[0].clientHeight + 20}px`);
+    // }
 
 
     let menu = document.getElementById("menu");
@@ -106,36 +106,66 @@ import { getDataFromFireBase } from '../js/firebase.js';
         // console.log(menu.style.display)
     })
 
-    //test
-    let sub_main = document.getElementById('sub_main');
-    let div_date = document.createElement('div');
-    let h2_date = document.createElement('h2');
-    let div_content = document.createElement('div');
-    let div_sub_content =document.createElement('div');
-
-    sub_main.appendChild(div_date);
-    div_date.appendChild(h2_date);
-    div_date.appendChild(div_content);
-    div_content.appendChild(div_sub_content);
-
-    sub_main.className = "sub_main";
-    div_date.className = "date";
-    div_content.className = "content";
-    div_sub_content.className = "sub_content";
-
-    let test = getDataFromFireBase()
+    let test;
+    if(count != 0){
+        test = getDataFromFireBase();
+    }
     test.forEach((doc) => {
-        sub_main.innerHTML +=     `
-        <div class="date">
-            <h2 id="${doc.time}">${doc.time}</h2>
-            <div class="content">
-                <div class="sub_content">
-                    ${doc.content}
-                </div>
-            </div>
-            ${doc.image}
-        </div>
-        `
+        // sub_main.innerHTML +=     `
+        // <div class="date">
+        //     <h2 id="${doc.time}">${doc.time}</h2>
+        //     <div class="content">
+        //         <div class="sub_content">
+        //             ${doc.content}
+        //         </div>
+        //     </div>
+        //     ${doc.image}
+        // </div>
+        // `
+
+        let sub_main = document.getElementById('sub_main');
+        let div_date = document.createElement('div');
+        let h2_date = document.createElement('h2');
+        let div_content = document.createElement('div');
+        let div_sub_content =document.createElement('div');
+
+        sub_main.appendChild(div_date);
+        div_date.appendChild(h2_date);
+        div_date.appendChild(div_content);
+        div_content.appendChild(div_sub_content);
+
+        sub_main.className = "sub_main";
+        div_date.className = "date";
+        div_content.className = "content";
+        div_sub_content.className = "sub_content";
+
+        sub_main.appendChild(div_date);
+        div_date.appendChild(h2_date);
+        div_date.appendChild(div_content);
+        div_content.appendChild(div_sub_content);
+
+        h2_date.id = doc.time;
+        h2_date.innerHTML = doc.time;
+        div_sub_content.innerHTML = doc.content;
+        if(doc.image != undefined) {
+            div_date.innerHTML = div_date.innerHTML + doc.image;
+        }
     })
-    // console.log(test);
+
+
+    let arr = document.querySelectorAll('.content');
+     for(let i = 0; i < arr.length; i++){
+        // console.log(arr[i].children[0].clientHeight);
+        arr[i].style.setProperty('--height', `${arr[i].children[0].clientHeight + 20}px`);
+    }
+
+    // let quickaccess = document.getElementById('quickaccess');
+    // let divdate = document.querySelectorAll('.date');
+    // // console.log(divdate[1].children[0].innerText);
+    // // console.log(quickaccess);
+    // let merge = ``;
+    // for(let i = 1; i < divdate.length; i++) {
+    //     merge += `<a href="#${divdate[i].children[0].id}">${divdate[i].children[0].innerText }</a>`+"\n";
+    // }
+    // quickaccess.innerHTML = merge;
 })();

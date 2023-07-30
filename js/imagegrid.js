@@ -51,26 +51,26 @@ if(bc_modal != null || p_modal_button != null || n_modal_button != null){
         h_modal.style.zIndex = "0";
         h_modal.style.opacity = 0;
         container.style.zIndex = "10";
-        // console.log("b_modal");
     })
     
     p_modal_button.addEventListener("click", function(){
-        let index = getId_image.map(function (img) { return img.src; }).indexOf(c_modal.children[0].attributes[0].value);
-        if(index >= 0){
-            // c_modal.innerHTML = `<img src="image/2af5673714e5c9bb90f4.jpg" alt="">`;
-            c_modal.innerHTML = `<img src="${getId_image[index-1].src}" alt="">`;
-            // c_modal.children[0].attributes[0].value = 'image/72c17c9f004ddd13845c.jpg';
-            // console.log(index);
-            // console.log("previous image");
+        let index = getId_image.indexOf(c_modal.children[0].attributes[0].value);
+        if(index > 0){
+            c_modal.innerHTML = `<img src="${getId_image[index-1]}" alt="">`;
+        }else{
+            index = 0;
+            c_modal.innerHTML = `<img src="${getId_image[index]}" alt="">`;
         }
     })
     
     n_modal_button.addEventListener("click", function(){
-        let index = getId_image.map(function (img) { return img.src; }).indexOf(c_modal.children[0].attributes[0].value);
-        c_modal.innerHTML = `<img src="${getId_image[index+1].src}" alt="">`;
-        // console.log("next image");
-        // console.log(index);
-        // console.log()
+        let index = getId_image.indexOf(c_modal.children[0].attributes[0].value);
+        if(index+1 < getId_image.length){
+            c_modal.innerHTML = `<img src="${getId_image[index+1]}" alt="">`;
+        }else{
+            index = 0;
+            c_modal.innerHTML = `<img src="${getId_image[index]}" alt="">`;
+        }
     })
 }
 
