@@ -91,6 +91,7 @@
     left: 0;
     padding-left: 10px;
     cursor: pointer;
+    z-index: 99;
 }
 
 .n_modal_button{
@@ -106,6 +107,7 @@
     right: 0;
     padding-right: 10px;
     cursor: pointer;
+    z-index: 99;
 }
 
 .bc_modal{
@@ -121,4 +123,10 @@
 .c_modal img{
     height: 100%;
     width: 100%;
+}
+
+.c_modal video{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }

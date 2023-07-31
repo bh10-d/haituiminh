@@ -150,6 +150,9 @@ import { getDataFromFireBase } from '../js/firebase.js';
         if(doc.image != undefined) {
             div_date.innerHTML = div_date.innerHTML + doc.image;
         }
+        if(doc.video != undefined) {
+            div_date.innerHTML = div_date.innerHTML + doc.video;
+        }
     })
 
 

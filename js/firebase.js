@@ -80,12 +80,20 @@ function getURLImage(path) {
 
         const divImg = document.createElement('div');
         const img = document.createElement('img');
+        const video = document.createElement('video');
+        const source = document.createElement('source');
         divImg.className = 'color1';
         divImg.onclick = (e) => {clickImageNew(e)}
-        img.src = url;
-        div.appendChild(divImg);
-        divImg.appendChild(img);
         
+        div.appendChild(divImg);
+        if(url.includes('mp4')){
+            divImg.appendChild(video);
+            video.appendChild(source);
+            source.src = url;
+        }else{
+            divImg.appendChild(img);
+            img.src = url;
+        }
 
         //dom ảo
         // const divImg = document.createElement('div');
