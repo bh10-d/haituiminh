@@ -43,7 +43,7 @@ import { getDataFromFireBase } from '../js/firebase.js';
         }
     }
     
-    console.log("Tong ngay: " + (count));
+    // console.log("Tong ngay: " + (count));
     
     
     let printdate = document.getElementById('day');
