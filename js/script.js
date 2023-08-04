@@ -28,9 +28,9 @@ import { getDataFromFireBase } from '../js/firebase.js';
                 }
             }
         }else{
-            if(history_month == month_data[g_date.getMonth()]){
-                for (let d = 1; d <= get_day_of_month(y, history_month); d++) {
-                    if (y == g_date.getFullYear() && history_month == month_data[g_date.getMonth()] && d <= g_date.getDate() ) {
+            for (let m = 1; m <= month_data[g_date.getMonth()]; m++) {
+                for (let d = 1; d <= get_day_of_month(y, m); d++) {
+                    if (y == g_date.getFullYear() && m == month_data[g_date.getMonth()] && d <= g_date.getDate() ) {
                         count++;
                         if(d == g_date.getDate()){
                             break;
@@ -39,39 +39,26 @@ import { getDataFromFireBase } from '../js/firebase.js';
                         count++;    
                     }
                 }
-            }else{
-                for (let m = 1; m <= month_data[g_date.getMonth()]; m++) {
-                    for (let d = 1; d <= get_day_of_month(y, m); d++) {
-                        if (y == g_date.getFullYear() && m == month_data[g_date.getMonth()] && d <= g_date.getDate() ) {
-                            count++;
-                            if(d == g_date.getDate()){
-                                break;
-                            }
-                        }else{
-                            count++;    
-                        }
-                    }
-                }
             }
         }
     }
     
-    // console.log("Tong ngay: " + (count));
+    console.log("Tong ngay: " + (count));
     
     
     let printdate = document.getElementById('day');
     printdate.innerHTML = count;
     
     
-    let quickaccess = document.getElementById('quickaccess');
-    let divdate = document.querySelectorAll('.date');
-    // console.log(divdate[1].children[0].innerText);
-    // console.log(quickaccess);
-    let merge = ``;
-    for(let i = 1; i < divdate.length; i++) {
-        merge += `<a href="#${divdate[i].children[0].id}">${divdate[i].children[0].innerText }</a>`+"\n";
-    }
-    quickaccess.innerHTML = merge;
+    // let quickaccess = document.getElementById('quickaccess');
+    // let divdate = document.querySelectorAll('.date');
+    // // console.log(divdate[1].children[0].innerText);
+    // // console.log(quickaccess);
+    // let merge = ``;
+    // for(let i = 1; i < divdate.length; i++) {
+    //     merge += `<a href="#${divdate[i].children[0].id}">${divdate[i].children[0].innerText }</a>`+"\n";
+    // }
+    // quickaccess.innerHTML = merge;
     
     
     // let divcontent = document.getElementById('divcontent');
@@ -162,13 +149,13 @@ import { getDataFromFireBase } from '../js/firebase.js';
         arr[i].style.setProperty('--height', `${arr[i].children[0].clientHeight + 20}px`);
     }
 
-    // let quickaccess = document.getElementById('quickaccess');
-    // let divdate = document.querySelectorAll('.date');
-    // // console.log(divdate[1].children[0].innerText);
-    // // console.log(quickaccess);
-    // let merge = ``;
-    // for(let i = 1; i < divdate.length; i++) {
-    //     merge += `<a href="#${divdate[i].children[0].id}">${divdate[i].children[0].innerText }</a>`+"\n";
-    // }
-    // quickaccess.innerHTML = merge;
+    let quickaccess = document.getElementById('quickaccess');
+    let divdate = document.querySelectorAll('.date');
+    // console.log(divdate[1].children[0].innerText);
+    // console.log(quickaccess);
+    let merge = ``;
+    for(let i = 1; i < divdate.length; i++) {
+        merge += `<a href="#${divdate[i].children[0].id}">${divdate[i].children[0].innerText }</a>`+"\n";
+    }
+    quickaccess.innerHTML = merge;
 })();

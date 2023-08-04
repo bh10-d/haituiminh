@@ -181,11 +181,16 @@ function clickImageNew(e) {
     // console.log(e.target.currentSrc)
     // console.log('clickImage');
     if(e.target.currentSrc.includes('mp4')){
-        c_modal.children[0].attributes[0].value = ""
-        c_modal.appendChild(video)
-        video.appendChild(source);
-        source.src = e.target.currentSrc;
-        video.autoplay = true;
+        // c_modal.children[0].attributes[0].value = ""
+        // c_modal.appendChild(video)
+        // video.appendChild(source);
+        // source.src = e.target.currentSrc;
+        // video.autoplay = true;
+        c_modal.innerHTML = `
+                <video width="100%" controls id="play" autoplay>
+                    <source src="${e.target.currentSrc}" type="video/mp4">
+                </video>
+                `;
     }else{
         // c_modal.appendChild(image);
         // image.src = e.target.currentSrc;
