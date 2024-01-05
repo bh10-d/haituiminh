@@ -16,12 +16,20 @@ import { getDataFromFireBase } from '../js/firebase.js';
     
     for (let y = history_year; y <= g_date.getFullYear(); y++) {
         if (y < g_date.getFullYear()) {
-            for (let m = history_month; m <= 12; m++) {
-                if(m == history_month){
-                    for (let d = history_date + 1; d <= get_day_of_month(y, m); d++) {
-                        count++;
+            if(y == history_year){
+                for (let m = history_month; m <= 12; m++) {
+                    if(m == history_month){
+                        for (let d = history_date + 1; d <= get_day_of_month(y, m); d++) {
+                            count++;
+                        }
+                    }else{
+                        for(let d = 1; d <= get_day_of_month(y,m); d++){
+                            count++;
+                        }
                     }
-                }else{
+                }
+            }else{
+                for (let m = 1; m <= 12; m++) {
                     for(let d = 1; d <= get_day_of_month(y,m); d++){
                         count++;
                     }
